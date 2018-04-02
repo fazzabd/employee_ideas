@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_form_ideas" model="ir.ui.view">
+		<field name="name">Ideas Form</field>
+		<field name="model">ideas</field>
+		<field name="arch" type="xml">
+			<form string="Ideas">
+				<header>
+					<button name="do_post_idea" string="Post idea for voting"
+						type="object" class="oe_highlight" 
+						attrs="{'invisible': [('state', '!=', 'new')]}"/>
+					<button name="do_approve"  string="Approve"
+						type="object" class="oe_highlight"
+						attrs="{'invisible': [('state', '!=', 'wait')]}"/>
+					<button name="do_reject"  string="Reject"
+						type="object" class="oe_highlight"
+						attrs="{'invisible': [('state', '!=', 'wait')]}"/>
+					<button name="do_give_vote"  string="Give Vote"
+						type="object" class="oe_highlight"
+						attrs="{'invisible': [('state', '!=', 'approve')]}"/>	
+					<button name="do_close"  string="Close"
+						type="object" class="oe_highlight"
+						attrs="{'invisible': [('state', '!=', 'approve')]}"/>	
+					<field name="state" widget="statusbar" />
+				</header>
+				<sheet>
+				<group>
+					<group>
+					<field name="title" style="font-weight: bold; font-size:24px; height:38px; width:250px"/>
+					</group>
+				</group>
+				<group>
+					<group>
+						<field name="user_id"/>
+						<field name="date_create"/>
+						<field name="company"/>
+					</group>
+					<group>
+						<field name="department"/>
+						<field name="date_deadline"/>
+						<field name="idea_type"/>
+					</group>
+				</group>
+					<notebook colspan="2">
+						<page name='details_page' string="Details">
+							<field name="details" placeholder="Details..." style="height:150px;"/>
+						</page>
+						<page name='votes_page' string="Employee Votes">
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="view_tree_ideas" model="ir.ui.view">
+			<field name="tittle">Ideas </field>
+			<field name="model">ideas</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="title"/>
+					<field name="user_id"/>
+				</tree>
+			</field>
+	</record>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record model="ir.actions.act_window" id="employee_idea">
+		<field name="name">Ideas</field>
+		<field name="res_model">ideas</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Create the first Example</p>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="ideas_types">
+        <field name="name">Idea Types</field>
+        <field name="res_model">ideas.types</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create the first Example
+            </p>
+        </field>
+    </record>
+	
+	<menuitem id="menu_ideas"
+		name="Ideas"
+		/>
+	<menuitem id="menu_employee_ideas" name="Employee Ideas"
+            parent="menu_ideas"/>
+    
+    <menuitem id="submenu_ideas" name="Ideas" parent="menu_employee_ideas"
+        action="employee_idea"/>
+    
+	<menuitem id="menu_configuration" name="Configuration"
+		parent="menu_ideas"/>
+
+    <menuitem id="submenu_idea_types" name="Idea Types" parent="menu_configuration"
+        action="ideas_types"/>
+</odoo>

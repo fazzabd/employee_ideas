@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="Employee Votes" model="ir.ui.view">
+		<field name="name">Employee Votes </field>
+		<field name="model">employee.vote</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="rating" />
+				<field name="comments" />
+			</form>
+
+		</field>
+	</record>
+	
+</odoo>
